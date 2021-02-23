@@ -1,12 +1,13 @@
 from components.physicBody import PhysicBody
-from components.renderComponent import RenderComponent
+from components.Rendering import Rendering
 
 
-class Player(PhysicBody, RenderComponent):
+class Player(PhysicBody, Rendering):
     def __init__(self, x, y, pg):
         PhysicBody.__init__(self, x, y, pg)
-        RenderComponent.__init__(self, pg)
+        Rendering.__init__(self, pg)
         self.onGround = True
+        self.sprites = pg.sprite.Group()
 
     def update(self):
         PhysicBody.update(self)
